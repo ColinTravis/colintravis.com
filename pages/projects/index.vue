@@ -2,7 +2,6 @@
   <section>
     <Header/>
     <h2 class="py-10 text-center font-bold text-4xl">projects Overview</h2>
-    {{ projects }}
     <ul class="flex py-6 mb-6">
       <li
         v-for="project in stories" :key="project._uid"
