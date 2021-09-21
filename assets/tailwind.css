@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Stolzl';
+  src: url('../fonts/StolzlMedium.woff2') format('woff2'),
+    url('../fonts/StolzlMedium.woff') format('woff'),
+    url('../fonts/StolzlMedium.eot') format('eot');
+  font-weight: 500;
+}
+@font-face {
+  font-family: 'Stolzl';
+  src: url('../fonts/StolzlRegular.eot') format('eot'),
+    url('../fonts/StolzlRegular.woff') format('woff'),
+    url('../fonts/StolzlRegular.woff2') format('woff2');
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'Stolzl';
+  src: url('../fonts/StolzlLight.eot') format('eot'),
+    url('../fonts/StolzlLight.woff') format('woff'),
+    url('../fonts/StolzlLight.woff2') format('woff2');
+  font-weight: 100;
+}
