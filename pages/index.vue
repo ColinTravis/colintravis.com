@@ -1,7 +1,13 @@
 <template>
-  <Tutorial/>
+  <div>
+    <Header />
+  </div>
 </template>
 
-<script>
-export default {}
-</script>
+<style lang="postcss">
+html,
+body {
+  @apply font-stolzl;
+  @apply bg-gray-100;
+}
+</style>
