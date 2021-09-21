@@ -10,5 +10,24 @@
         <h1 class="text-xl">Colin Travis</h1>
       </div>
     </div>
+
+    <nav>
+      <ul>
+        <li>
+          <nuxt-link
+            class="text-teal-600 hover:underline"
+            to="/test">
+            Home
+          </nuxt-link>
+        </li>
+        <li>
+          <nuxt-link
+            class="text-teal-600 hover:underline"
+            to="/projects">
+            Projects
+          </nuxt-link>
+        </li>
+      </ul>
+    </nav>
   </header>
 </template>
