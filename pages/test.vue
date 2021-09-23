@@ -45,8 +45,8 @@ export default {
   },
   asyncData(context) {
     // // This what would we do in real project
-    // const version = context.query._storyblok || context.isDev ? 'draft' : 'published'
-    // const fullSlug = (context.route.path == '/' || context.route.path == '') ? 'home' : context.route.path
+    const version = context.query._storyblok || context.isDev ? 'draft' : 'published'
+    const fullSlug = (context.route.path == '/test' || context.route.path == '') ? 'home' : context.route.path
 
     //  // Loading reference data - Projecs in our case
     // if(context.store.state.projects.loaded !== '1') {
@@ -56,8 +56,8 @@ export default {
     //   context.store.commit('projects/setLoaded', '1')
     // Load the JSON from the API - loading the home content (index page)
     return context.app.$storyapi
-      .get('cdn/stories/home', {
-        version: 'draft',
+      .get(`cdn/stories/${fullSlug}`, {
+        version: version,
       })
       .then((res) => {
         return res.data;
