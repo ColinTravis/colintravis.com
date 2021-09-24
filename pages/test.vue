@@ -43,9 +43,28 @@ export default {
       });
     });
   },
+
+  asyncData (context) {
+    return context.app.$storyapi.get('cdn/stories', {
+      starts_with: 'projects/',
+      version: 'draft'
+    }).then((res) => {
+      return res.data
+    }).catch((res) => {
+      if (!res.response) {
+        console.error(res)
+        context.error({ statusCode: 404, message: 'Failed to receive content form api' })
+      } else {
+        console.error(res.response.data)
+        context.error({ statusCode: res.response.status, message: res.response.data })
+      }
+    })
+  },
+
   asyncData(context) {
     // // This what would we do in real project
     // const version = context.query._storyblok || context.isDev ? 'draft' : 'published'
+      let version = context.query._storyblok || context.isDev ? 'draft' : 'published';
     // const fullSlug = (context.route.path == '/' || context.route.path == '') ? 'home' : context.route.path
 
     //  // Loading reference data - Projecs in our case
@@ -57,7 +76,7 @@ export default {
     // Load the JSON from the API - loading the home content (index page)
     return context.app.$storyapi
       .get('cdn/stories/home', {
-        version: 'draft',
+        version: version,
       })
       .then((res) => {
         return res.data;
