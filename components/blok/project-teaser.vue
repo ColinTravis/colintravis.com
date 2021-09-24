@@ -2,6 +2,10 @@
   <nuxt-link
     :to="projectLink"
     class="project-teaser block py-4 px-6 border rounded border-gray-500">
+    PROJECT TEASER
+    <h2 class="pt-2 pb-4 text-2xl font-bold">
+      {{ projectContent.title }}
+    </h2>
     <h2 class="pt-2 pb-4 text-2xl font-bold">
       {{ projectContent.name }}
     </h2>
@@ -22,7 +26,16 @@ export default {
       type: String,
       required: true
     }
+  },
+computed : {
+  resizeImaged(){
+    const imageUrl = this.projectContent.hero_image
+    if (typeof imageUrl !== 'undefined') {
+      return imageUrl.filename.replace('//a.storyblok.com', '//img2.storyblok.com/300x250'
+      )
+    }
   }
+}
 }
 </script>
  
