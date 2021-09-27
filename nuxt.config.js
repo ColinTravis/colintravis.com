@@ -49,13 +49,22 @@ export default {
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
   ],
+  
+// ENV
+  publicRuntimeConfig: {
+    blokTokenPreview: process.env.PREVIEW_TOKEN,
+    // baseURL:process.env.NODE_ENV === 'production' ? 'https://nuxtjs.org' : 'https://dev.nuxtjs.org',
+  },
+  privateRuntimeConfig: {
+    blokTokenPublic: process.env.PUBLIC_TOKEN,
+  },
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     [
       'storyblok-nuxt',
       {
-        accessToken: 'KN2YufxCB1iYO9PLd3QzzAtt',
+        accessToken: process.env.PREVIEW_TOKEN,
         cacheProvider: 'memory',
       },
     ],
@@ -91,7 +100,7 @@ export default {
 
   generate: {
     routes: function (callback) {
-      const token = `KN2YufxCB1iYO9PLd3QzzAtt`;
+      const token = process.env.PUBLIC_TOKEN;
       const version = 'published';
       let cache_version = 0;
 
