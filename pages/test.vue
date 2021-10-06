@@ -1,9 +1,5 @@
 <template>
   <section>
-    <!-- <div>
-        <h1>Data from Storyblok:</h1>
-        {{story}}
-    </div> -->
     <component
       v-if="story.content.component"
       :key="story.content._uid"
@@ -27,7 +23,6 @@ export default {
 
       // Use the input event for instant update of content
       storyblokInstance.on('input', (event) => {
-        console.log(this.story.content);
         if (event.story.id === this.story.id) {
           this.story.content = event.story.content;
         }
@@ -44,17 +39,11 @@ export default {
     });
   },
   asyncData(context) {
-    // // This what would we do in real project
-    const version = context.query._storyblok || context.isDev ? 'draft' : 'published'
-    const fullSlug = (context.route.path == '/test' || context.route.path == '') ? 'home' : context.route.path
+    const version =
+      context.query._storyblok || context.isDev ? 'draft' : 'published';
 
-    //  // Loading reference data - Projecs in our case
-    // if(context.store.state.projects.loaded !== '1') {
+    const fullSlug = context.route.path == '/test' || context.route.path == '' ? 'home' : context.route.path;
 
-    //   let projectsRefRes = await context.app.$storyapi.get(`cdn/stories/`, { starts_with: 'projects/', version: 'draft' })
-    //   context.store.commit('projects/setProjects', projectsRefRes.data.stories)
-    //   context.store.commit('projects/setLoaded', '1')
-    // Load the JSON from the API - loading the home content (index page)
     return context.app.$storyapi
       .get(`cdn/stories/${fullSlug}`, {
         version: version,

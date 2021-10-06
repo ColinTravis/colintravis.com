@@ -35,8 +35,8 @@ export default {
   },
   asyncData(context) {
     // Load the JSON from the API
-    let version =
-      context.query._storyblok || context.isDev ? 'draft' : 'published';
+    let version = process.env.NODE_ENV == 'production' ? 'published' : 'draft'
+      // context.query._storyblok || context.isDev ? 'draft' : 'published';
 
     return context.app.$storyapi
       .get(`cdn/stories/projects/${context.params.slug}`, {

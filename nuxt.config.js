@@ -49,7 +49,7 @@ export default {
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
   ],
-  
+
 // ENV
   publicRuntimeConfig: {
     blokTokenPreview: process.env.PREVIEW_TOKEN,
@@ -104,7 +104,7 @@ export default {
       const version = 'published';
       let cache_version = 0;
 
-      let toIgnore = ['home', 'en/settings'];
+      let toIgnore = ['home', 'en/settings', 'global'];
 
       // other routes that are not in Storyblok with their slug.
       let routes = ['/']; // adds / directly

@@ -2,7 +2,7 @@
   <nuxt-link
     :to="projectLink"
     class="project-teaser block py-4 px-6 border rounded border-gray-500">
-    PROJECT TEASER
+    PROJECT TEASER COMPONENT
     <h2 class="pt-2 pb-4 text-2xl font-bold">
       {{ projectContent.title }}
     </h2>

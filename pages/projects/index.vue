@@ -31,12 +31,14 @@ export default {
   },
   asyncData(context) {
     let version = context.query._storyblok || context.isDev ? 'draft' : 'published';
+    // let version = process.env.NODE_ENV == 'production' ? 'published' : 'draft',
     return context.app.$storyapi
       .get('cdn/stories', {
         starts_with: 'projects/',
         version: version,
       })
       .then((res) => {
+        console.log(res)
         return res.data;
       })
       .catch((res) => {
