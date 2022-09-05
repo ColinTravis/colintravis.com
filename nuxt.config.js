@@ -17,12 +17,24 @@ export default defineNuxtConfig({
       meta: [
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         { 'http-equiv': 'x-ua-compatible', content: 'ie=edge,chrome=1' },
+
+        // Open Graph
+        { property: 'og:type', content: 'website' },
+        { property: 'og:title', hid: 'og:title', content: meta.title },
+        { property: 'og:url', hid: 'og:url', content: meta.url },
+        {
+          property: 'og:description',
+          hid: 'og:description',
+          content: meta.description
+        },
+        // Generic
+        { property: 'image', hid: 'image', content: meta.image },
+        { property: 'og:image', hid: 'og:image', content: meta.image },
         {
           hid: 'description',
           name: 'description',
           content: meta.description
         },
-        { name: 'og:image', content: meta.image },
         { name: 'theme-color', content: theme.extend.colors['ct-blue'] }
       ],
       link: [
