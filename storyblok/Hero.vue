@@ -12,7 +12,7 @@ defineProps({
     <div class="container grid grid-cols-2 mx-auto">
       <img
         v-if="blok.image"
-        :src="blok.image.filename"
+        :src="`${blok.image.filename}/m/`"
         :alt="blok.image.alt"
         :title="blok.image.title"
       />
