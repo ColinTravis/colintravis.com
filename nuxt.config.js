@@ -5,7 +5,7 @@ const meta = {
   title: 'ColinTravis',
   description: 'Colin Travis: Maker, Developer',
   url: 'https://colintravis.com',
-  image: '/logos/ct_logo_dark.png'
+  image: 'https://colintravis.com/ct_meta.jpg'
 }
 
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
