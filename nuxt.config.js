@@ -1,5 +1,5 @@
-import { defineNuxtConfig } from 'nuxt'
 const { theme } = require('./tailwind.config')
+import { apiPlugin } from '@storyblok/vue'
 
 const meta = {
   title: 'ColinTravis',
@@ -44,10 +44,16 @@ export default defineNuxtConfig({
     }
   },
 
-  modules: ['@storyblok/nuxt', '@nuxtjs/tailwindcss'],
+  modules: ['@storyblok/nuxt', '@nuxtjs/tailwindcss', 'nuxt-icon', '@nuxt/image-edge'],
+  image: {
+    provider: 'storyblok',
+    storyblok: {
+      baseURL: 'https://a-us.storyblok.com'
+    }
+  },
   storyblok: {
     accessToken: process.env.STORYBLOK_API_PREVIEW,
-    apiOptions: { region: 'us' },
-    usePlugin: false
+    use: [apiPlugin],
+    apiOptions: { region: 'us' }
   }
 })
